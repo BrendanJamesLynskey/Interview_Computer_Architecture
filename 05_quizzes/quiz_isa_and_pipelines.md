@@ -106,6 +106,6 @@ d) RAW from MEM-stage to WB-stage writes.
 
 **A10.** 1.05 ≥ 1.0 + 0.15 × (1 − p) × 12 → (1 − p) ≤ 0.0278 → p ≥ **97.2%**.
 
-**A11.** (c). WAR hazards do not exist in an in-order 5-stage pipeline, so forwarding has nothing to do with eliminating them — they never occur.
+**A11.** (b). A load result is not available until the end of MEM, so a dependent ALU op in the next cycle still needs a one-cycle stall even with full forwarding (see A3). WAR hazards (c) do not exist in an in-order 5-stage pipeline, so forwarding has nothing to eliminate there — they never occur.
 
 **A12.** In fixed-length encoding, every N-wide decoder slot starts at a known offset (PC, PC+4, PC+8, ...), so decoders can operate fully in parallel. In variable-length encoding, decoder *i* cannot start parsing its slot until decoder *i-1* has finished, because the length of instruction *i-1* determines where instruction *i* begins. This serialisation limits wide decode throughput. Intel mitigates it with a pre-decode stage that marks instruction boundaries ahead of the main decoder, and a µop cache that caches post-decode results so steady-state hot loops bypass the decoder entirely.

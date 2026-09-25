@@ -91,7 +91,7 @@ d) The store queue overflows.
 
 **A5.** (c). Source operand values live in the physical register file (or in the RS in the classic scheme), not in the ROB. The ROB tracks ordering metadata, not operand data.
 
-**A6.** At 4 IPC and 300-cycle latency, the ROB is the limiting structure: 500 entries / 300 cycles ≈ 1.67 cache-miss-equivalents at steady state. More importantly, the number of outstanding *memory* ops is bounded separately by the load and store queue sizes — typically ~100 loads in flight. So practical MLP is ~100, not 500.
+**A6.** At 4 IPC the 500-entry ROB fills in 500 / 4 = 125 cycles, well before a 300-cycle miss returns, so the ROB is the limiting structure: at most the misses among the 500 in-flight instructions can overlap. More importantly, the number of outstanding *memory* ops is bounded separately by the load and store queue sizes — typically ~100 loads in flight. So practical MLP is ~100, not 500.
 
 **A7.** Because a replay only re-executes the specific instruction whose timing assumption was wrong (and its affected dependents), while a flush invalidates everything younger than the mispredicted branch — potentially hundreds of correctly-predicted instructions — and requires refetching from the I-cache.
 
