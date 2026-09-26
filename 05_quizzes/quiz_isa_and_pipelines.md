@@ -11,7 +11,7 @@
 a) RAW
 b) WAR
 c) Control
-d) Structural (if I-cache and D-cache are separate)
+d) Structural (if instruction fetch and data access share one single-ported memory)
 
 ---
 
@@ -86,7 +86,7 @@ d) RAW from MEM-stage to WB-stage writes.
 
 ## Answers
 
-**A1.** (b) WAR is impossible in a classic 5-stage in-order pipeline because register reads happen in ID (early) and writes in WB (late), both strictly in program order.
+**A1.** (b) WAR is impossible in a classic 5-stage in-order pipeline because register reads happen in ID (early) and writes in WB (late), both strictly in program order. RAW and control hazards always occur, and (d) is possible: with a single-ported unified memory, a load or store in MEM conflicts with the instruction fetch in IF in the same cycle. (With separate I- and D-caches that structural hazard disappears, which is why the option specifies a shared memory.)
 
 **A2.** CPI = 1.0 + 0.20 × 0.04 × 15 = **1.12**.
 
