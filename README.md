@@ -83,6 +83,7 @@ This repository is structured as a progressive course in modern computer archite
 - **[Interview_RISC_V](https://github.com/BrendanJamesLynskey/Interview_RISC_V)** — RISC-V ISA specifics and privileged architecture
 - **[Interview_CUDA](https://github.com/BrendanJamesLynskey/Interview_CUDA)** — GPU architecture and CUDA programming
 - **[Interview_AI_Accelerator_Architecture](https://github.com/BrendanJamesLynskey/Interview_AI_Accelerator_Architecture)** — ML accelerator design principles
+- **[Interview_Simulation](https://github.com/BrendanJamesLynskey/Interview_Simulation)** — Simulation and performance modelling: fidelity ladder, discrete-event simulation, roofline and memory-system models, PPA
 
 ## Contributing
 
